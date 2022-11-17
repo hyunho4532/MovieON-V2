@@ -112,6 +112,6 @@ public class MovieRankActivity extends AppCompatActivity {
     }
 
     public void click_btn(View view) {
-        
+
     }
 }

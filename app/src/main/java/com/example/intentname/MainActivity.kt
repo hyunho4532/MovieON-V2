@@ -31,6 +31,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             showDialog()
         }
 
+        tv_remake_customer_menu.setOnClickListener {
+            val intent = Intent(this, MovieListActivity::class.java)
+            startActivity(intent)
+        }
+
         cv_remake_menu1.setOnClickListener(this)
     }
 
