@@ -19,8 +19,6 @@ import com.example.intentname.R;
 import com.example.intentname.movieList.data.TodoItem;
 import com.example.intentname.movieList.database.DBHelper;
 
-import org.w3c.dom.Text;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,6 +32,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyVi
     public MovieListAdapter(ArrayList<TodoItem> todoItems, Context mContext) {
         this.todoItems = todoItems;
         this.mContext = mContext;
+        mDBHelper = new DBHelper(mContext);
     }
 
     @NonNull

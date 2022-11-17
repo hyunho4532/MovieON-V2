@@ -80,6 +80,7 @@ public class MovieListActivity extends AppCompatActivity {
     }
 
     private void loadRecentDB() {
+
         mTodoItems = mDBHelper.getMovieList();
 
         if (mAdapter == null) {
