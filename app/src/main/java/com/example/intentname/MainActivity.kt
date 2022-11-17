@@ -1,42 +1,41 @@
 package com.example.intentname
 
 import android.annotation.SuppressLint
-import android.app.ActionBar.LayoutParams
 import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
-import android.widget.Toast
+import com.example.intentname.movieList.MovieListActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_activity_intent.*
 import kotlinx.android.synthetic.main.dialog_activity_intent.view.*
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
-
-    private val logger = "MainActivity"
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         cv_random_title.setOnClickListener { random_change ->
-            random_change.visibility = View.INVISIBLE;
+            random_change.visibility = View.INVISIBLE
         }
 
         tv_main_best_movie.setOnClickListener {
             showDialog()
         }
 
-        tv_remake_customer_menu.setOnClickListener {
+        cv_remake_menu2.setOnClickListener {
             val intent = Intent(this, MovieListActivity::class.java)
             startActivity(intent)
         }
 
-        cv_remake_menu1.setOnClickListener(this)
+        cv_remake_menu1.setOnClickListener {
+            val intent = Intent(this, MovieRankActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     @SuppressLint("InflateParams")
@@ -51,36 +50,5 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         alertDialog.window!!.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT)
 
         alertDialog.show()
-
-        alertDialog.cv_movie_rank.setOnClickListener(this)
-    }
-
-    override fun onClick(view: View) {
-        when (view.id) {
-            R.id.cv_movie_rank -> startRankIntent()
-            R.id.cv_remake_menu1 -> startMenu1Intent()
-            R.id.cv_remake_menu2 -> startMenu2Intent()
-            R.id.cv_remake_menu3 -> startMenu3Intent()
-        }
-    }
-
-    private fun startRankIntent() {
-        val movieRankIntent = Intent(this, MovieRankActivity::class.java)
-        startActivity(movieRankIntent)
-    }
-
-    private fun startMenu1Intent() {
-        val movieMenu1Intent = Intent(this, MovieRankActivity::class.java)
-        startActivity(movieMenu1Intent)
-    }
-
-    private fun startMenu2Intent() {
-        val movieMenu2Intent = Intent(this, MovieRankActivity::class.java)
-        startActivity(movieMenu2Intent)
-    }
-
-    private fun startMenu3Intent() {
-        val movieMenu3Intent = Intent(this, MovieRankActivity::class.java)
-        startActivity(movieMenu3Intent)
     }
 }

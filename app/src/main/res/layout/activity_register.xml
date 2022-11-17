@@ -155,4 +155,13 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
         app:srcCompat="@drawable/activity_instagram_image" />
 
+    <TextView
+        android:id="@+id/tv_intent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_register_check" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.intentname.MainActivity;
@@ -31,6 +32,9 @@ public class RegisterActivity extends AppCompatActivity {
 
     private Button btn_register_check;
 
+    private TextView tv_intent;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +47,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
+
+        tv_intent = findViewById(R.id.tv_intent);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -60,6 +66,14 @@ public class RegisterActivity extends AppCompatActivity {
                 if (!et_email.getText().toString().equals("") && !et_password.getText().toString().equals("")) {
                     createUser(et_email.getText().toString(), et_password.getText().toString());
                 }
+            }
+        });
+
+        tv_intent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }
