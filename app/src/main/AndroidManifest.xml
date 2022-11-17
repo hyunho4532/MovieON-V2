@@ -14,23 +14,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IntentName"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".MovieListActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
         <activity
             android:name=".register.address.SearchActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustNothing"></activity>
+            android:windowSoftInputMode="adjustNothing">
+
+        </activity>
+
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false">
+
+        </activity>
+
         <activity
             android:name=".MovieRankActivity"
-            android:exported="false"></activity>
+            android:exported="false">
+
+        </activity>
         <activity
             android:name=".register.RegisterActivity"
             android:exported="true">
@@ -39,6 +41,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 
