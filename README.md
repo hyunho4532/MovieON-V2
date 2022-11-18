@@ -6,4 +6,4 @@
 <h3>- Java, Kotlin, ViewBinding</h3><br><br>
 
 # DB
-<h3>Firebase, SQlite, MariaDB</h3>
+<h3>- Firebase, SQlite, MariaDB</h3>
