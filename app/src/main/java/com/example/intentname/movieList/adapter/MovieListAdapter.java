@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.intentname.R;
 import com.example.intentname.movieList.data.MovieData;
-import com.example.intentname.movieList.database.OpenDBHelper;
+import com.example.intentname.movieList.database.MovieDBHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,12 +27,12 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyVi
 
     private ArrayList<MovieData> movieData;
     private Context mContext;
-    private OpenDBHelper mDBHelper;
+    private MovieDBHelper mDBHelper;
 
     public MovieListAdapter(ArrayList<MovieData> movieData, Context mContext) {
         this.movieData = movieData;
         this.mContext = mContext;
-        mDBHelper = new OpenDBHelper(mContext);
+        mDBHelper = new MovieDBHelper(mContext, "myMovie.db", null, 1);
     }
 
     @NonNull
@@ -44,11 +44,11 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyVi
 
     @Override
     public void onBindViewHolder(@NonNull MovieListAdapter.MyViewHolder holder, int position) {
-        holder.tv_title.setText(String.valueOf(movieData.get(position).getTitle()));
-        holder.tv_content.setText(String.valueOf(movieData.get(position).getContent()));
-        holder.tv_writeDate.setText(String.valueOf(movieData.get(position).getWriteDate()));
-        holder.tv_tag.setText(String.valueOf(movieData.get(position).getTag()));
-        holder.tv_group_count.setText(String.valueOf(movieData.get(position).getGroupCount()));
+        holder.tv_title.setText(movieData.get(position).getTitle());
+        holder.tv_content.setText(movieData.get(position).getContent());
+        holder.tv_writeDate.setText(movieData.get(position).getWriteDate());
+        holder.tv_tag.setText(movieData.get(position).getTag());
+        holder.tv_group_count.setText(movieData.get(position).getGroupCount());
     }
 
     @Override
@@ -115,7 +115,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyVi
                                         String groupCount = et_group_count.getText().toString();
                                         String tag = et_tag.getText().toString();
 
-                                        mDBHelper.UpdateMovie(title, content, currentTime, beforeTime, groupCount, tag);
+                                        mDBHelper.updateMovie(title, content, currentTime, beforeTime, groupCount, tag);
 
                                         movieItem.setTitle(title);
                                         movieItem.setContent(content);
@@ -134,7 +134,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyVi
                             }
                             else if (position == 1) {
                                 String beforeTime = movieItem.getWriteDate();
-                                mDBHelper.DeleteMovie(beforeTime);
+                                mDBHelper.deleteMovie(beforeTime);
 
                                 movieData.remove(curPos);
                                 notifyItemRemoved(curPos);

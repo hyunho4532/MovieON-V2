@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.example.intentname.R;
 import com.example.intentname.movieList.adapter.MovieListAdapter;
 import com.example.intentname.movieList.data.MovieData;
-import com.example.intentname.movieList.database.OpenDBHelper;
+import com.example.intentname.movieList.database.MovieDBHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.SimpleDateFormat;
@@ -28,14 +28,12 @@ public class YourMovieActivity extends AppCompatActivity {
     private RecyclerView mRv_todo;
     private FloatingActionButton mBtn_write;
     private ArrayList<MovieData> mMovieData;
-    private OpenDBHelper mDBHelper;
+    private MovieDBHelper mDBHelper;
     private MovieListAdapter mAdapter;
 
     private Spinner spinner;
 
     private ArrayAdapter<CharSequence> adapter;
-
-    String[] items = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +44,7 @@ public class YourMovieActivity extends AppCompatActivity {
     }
 
     private void setInit() {
-        mDBHelper = new OpenDBHelper(this);
+        mDBHelper = new MovieDBHelper(this, "myMovie.db", null, 1);
         mRv_todo = findViewById(R.id.rv_todo);
         mBtn_write = findViewById(R.id.btn_write);
 
@@ -78,7 +76,7 @@ public class YourMovieActivity extends AppCompatActivity {
 
                         String currentTime = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 
-                        mDBHelper.InsertMovie(et_title.getText().toString(), et_content.getText().toString(), currentTime, et_group_count.getText().toString(), et_tag.getText().toString());
+                        mDBHelper.insertMovie(et_title.getText().toString(), et_content.getText().toString(), currentTime, et_group_count.getText().toString(), et_tag.getText().toString());
 
                         MovieData movieData = new MovieData();
                         movieData.setTitle(et_title.getText().toString());
