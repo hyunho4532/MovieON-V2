@@ -6,7 +6,10 @@
 <br><br>
 
 # Developer $ Laungage
-<h3>- Java, Kotlin, ViewBinding</h3><br><br>
+<h3>- Android Studio, Java, Kotlin, ViewBinding</h3><br><br>
+
+# Tools
+<h3>- Gradle, 
 
 # DB
 <h3>- Firebase, SQlite, MariaDB</h3>
