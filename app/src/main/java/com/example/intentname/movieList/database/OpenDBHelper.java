@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.example.intentname.movieList.data.MovieItem;
+import com.example.intentname.movieList.data.MovieData;
 
 import java.util.ArrayList;
 
@@ -31,8 +31,8 @@ public class OpenDBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public ArrayList<MovieItem> getMovieList() {
-        ArrayList<MovieItem> movieItems = new ArrayList<>();
+    public ArrayList<MovieData> getMovieList() {
+        ArrayList<MovieData> movieItems = new ArrayList<>();
 
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM UserMovie ORDER BY writeDate DESC", null);
@@ -46,15 +46,15 @@ public class OpenDBHelper extends SQLiteOpenHelper {
                 String groupCount = cursor.getString(cursor.getColumnIndexOrThrow("groupCount"));
                 String tag = cursor.getString(cursor.getColumnIndexOrThrow("tag"));
 
-                MovieItem movieItem = new MovieItem();
-                movieItem.setId(id);
-                movieItem.setTitle(title);
-                movieItem.setContent(content);
-                movieItem.setWriteDate(writeDate);
-                movieItem.setGroupCount(groupCount);
-                movieItem.setTag(tag);
+                MovieData movieData = new MovieData();
+                movieData.setId(id);
+                movieData.setTitle(title);
+                movieData.setContent(content);
+                movieData.setWriteDate(writeDate);
+                movieData.setGroupCount(groupCount);
+                movieData.setTag(tag);
 
-                movieItems.add(movieItem);
+                movieItems.add(movieData);
             }
         }
 

@@ -3,23 +3,19 @@ package com.example.intentname.movieList;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.R.layout;
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.intentname.R;
 import com.example.intentname.movieList.adapter.MovieListAdapter;
-import com.example.intentname.movieList.data.MovieItem;
+import com.example.intentname.movieList.data.MovieData;
 import com.example.intentname.movieList.database.OpenDBHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -31,7 +27,7 @@ public class YourMovieActivity extends AppCompatActivity {
 
     private RecyclerView mRv_todo;
     private FloatingActionButton mBtn_write;
-    private ArrayList<MovieItem> mMovieItems;
+    private ArrayList<MovieData> mMovieData;
     private OpenDBHelper mDBHelper;
     private MovieListAdapter mAdapter;
 
@@ -54,7 +50,7 @@ public class YourMovieActivity extends AppCompatActivity {
         mRv_todo = findViewById(R.id.rv_todo);
         mBtn_write = findViewById(R.id.btn_write);
 
-        mMovieItems = new ArrayList<>();
+        mMovieData = new ArrayList<>();
 
         loadRecentDB();
 
@@ -84,14 +80,14 @@ public class YourMovieActivity extends AppCompatActivity {
 
                         mDBHelper.InsertMovie(et_title.getText().toString(), et_content.getText().toString(), currentTime, et_group_count.getText().toString(), et_tag.getText().toString());
 
-                        MovieItem item = new MovieItem();
-                        item.setTitle(et_title.getText().toString());
-                        item.setContent(et_content.getText().toString());
-                        item.setWriteDate(currentTime);
-                        item.setGroupCount(et_group_count.getText().toString());
-                        item.setTag(et_tag.getText().toString());
+                        MovieData movieData = new MovieData();
+                        movieData.setTitle(et_title.getText().toString());
+                        movieData.setContent(et_content.getText().toString());
+                        movieData.setWriteDate(currentTime);
+                        movieData.setGroupCount(et_group_count.getText().toString());
+                        movieData.setTag(et_tag.getText().toString());
 
-                        mAdapter.addItem(item);
+                        mAdapter.addItem(movieData);
 
                         dialog.dismiss();
 
@@ -106,10 +102,10 @@ public class YourMovieActivity extends AppCompatActivity {
 
     private void loadRecentDB() {
 
-        mMovieItems = mDBHelper.getMovieList();
+        mMovieData = mDBHelper.getMovieList();
 
         if (mAdapter == null) {
-            mAdapter = new MovieListAdapter(mMovieItems, this);
+            mAdapter = new MovieListAdapter(mMovieData, this);
             mRv_todo.setHasFixedSize(true);
             mRv_todo.setAdapter(mAdapter);
         }

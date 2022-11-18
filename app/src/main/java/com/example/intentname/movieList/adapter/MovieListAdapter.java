@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.intentname.R;
-import com.example.intentname.movieList.data.MovieItem;
+import com.example.intentname.movieList.data.MovieData;
 import com.example.intentname.movieList.database.OpenDBHelper;
 
 import java.text.SimpleDateFormat;
@@ -25,12 +25,12 @@ import java.util.Date;
 
 public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyViewHolder> {
 
-    private ArrayList<MovieItem> movieItems;
+    private ArrayList<MovieData> movieData;
     private Context mContext;
     private OpenDBHelper mDBHelper;
 
-    public MovieListAdapter(ArrayList<MovieItem> movieItems, Context mContext) {
-        this.movieItems = movieItems;
+    public MovieListAdapter(ArrayList<MovieData> movieData, Context mContext) {
+        this.movieData = movieData;
         this.mContext = mContext;
         mDBHelper = new OpenDBHelper(mContext);
     }
@@ -44,16 +44,16 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyVi
 
     @Override
     public void onBindViewHolder(@NonNull MovieListAdapter.MyViewHolder holder, int position) {
-        holder.tv_title.setText(String.valueOf(movieItems.get(position).getTitle()));
-        holder.tv_content.setText(String.valueOf(movieItems.get(position).getContent()));
-        holder.tv_writeDate.setText(String.valueOf(movieItems.get(position).getWriteDate()));
-        holder.tv_tag.setText(String.valueOf(movieItems.get(position).getTag()));
-        holder.tv_group_count.setText(String.valueOf(movieItems.get(position).getGroupCount()));
+        holder.tv_title.setText(String.valueOf(movieData.get(position).getTitle()));
+        holder.tv_content.setText(String.valueOf(movieData.get(position).getContent()));
+        holder.tv_writeDate.setText(String.valueOf(movieData.get(position).getWriteDate()));
+        holder.tv_tag.setText(String.valueOf(movieData.get(position).getTag()));
+        holder.tv_group_count.setText(String.valueOf(movieData.get(position).getGroupCount()));
     }
 
     @Override
     public int getItemCount() {
-        return movieItems.size();
+        return movieData.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -77,7 +77,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyVi
                 @Override
                 public void onClick(View v) {
                     int curPos = getAdapterPosition();
-                    MovieItem movieItem = movieItems.get(curPos);
+                    MovieData movieItem = movieData.get(curPos);
 
                     String[] strChoiceItems = { "수정하기", "삭제하기" };
 
@@ -136,7 +136,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyVi
                                 String beforeTime = movieItem.getWriteDate();
                                 mDBHelper.DeleteMovie(beforeTime);
 
-                                movieItems.remove(curPos);
+                                movieData.remove(curPos);
                                 notifyItemRemoved(curPos);
 
                                 Toast.makeText(mContext, "목록 삭제가 완료되었습니다.", Toast.LENGTH_LONG).show();
@@ -149,8 +149,8 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyVi
         }
     }
 
-    public void addItem(MovieItem _item) {
-        movieItems.add(0, _item);
+    public void addItem(MovieData _data) {
+        movieData.add(0, _data);
         notifyItemInserted(0);
     }
 }
