@@ -1,10 +1,16 @@
 package com.example.intentname.movieList.data;
 
-public class TodoItem {
+public class MovieItem {
     private int id;
     private String title;
     private String content;
     private String writeDate;
+    private String groupCount;
+    private String tag;
+
+    public MovieItem() {
+
+    }
 
     public int getId() {
         return id;
@@ -37,5 +43,20 @@ public class TodoItem {
     public void setWriteDate(String writeDate) {
         this.writeDate = writeDate;
     }
-}
 
+    public String getGroupCount() {
+        return groupCount;
+    }
+
+    public void setGroupCount(String groupCount) {
+        this.groupCount = groupCount;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+}

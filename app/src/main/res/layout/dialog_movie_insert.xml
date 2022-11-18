@@ -7,55 +7,63 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginStart="32dp"
+        android:layout_height="700dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.515">
 
         <TextView
             android:id="@+id/tv_des_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/welcome_font"
             android:text="영화 제목"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_dialog_movie_list_title" />
 
         <EditText
             android:id="@+id/et_title"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="18dp"
             android:ems="10"
             android:inputType="textPersonName"
             app:layout_constraintStart_toStartOf="@+id/tv_des_title"
-            app:layout_constraintTop_toBottomOf="@+id/tv_des_title" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_des_title"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <TextView
             android:id="@+id/tv_des_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="영화 내용"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/welcome_font"
+            android:text="좋아하는 영화 제목"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="@+id/et_title"
             app:layout_constraintTop_toBottomOf="@+id/et_title" />
 
         <EditText
             android:id="@+id/et_content"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="18dp"
             android:ems="10"
             android:inputType="textPersonName"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/tv_des_content"
-            app:layout_constraintTop_toBottomOf="@+id/tv_des_content" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_des_content"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
             android:id="@+id/btn_ok"
@@ -66,6 +74,62 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_dialog_movie_list_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawableEnd="@drawable/activity_movie_recruitment_size"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/welcome_font"
+            android:gravity="center"
+            android:text="영화단 모집합니다!!!"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_dialog_movie_group_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/welcome_font"
+            android:text="영화단의 구성원"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/et_content"
+            app:layout_constraintTop_toBottomOf="@+id/et_content" />
+
+        <EditText
+            android:id="@+id/et_group_count"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_dialog_movie_group_count"
+            app:layout_constraintTop_toBottomOf="@+id/tv_dialog_movie_group_count" />
+
+        <TextView
+            android:id="@+id/tv_dialog_movie_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/welcome_font"
+            android:text="마지막으로 태그"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/et_group_count"
+            app:layout_constraintTop_toBottomOf="@+id/et_group_count" />
+
+        <EditText
+            android:id="@+id/et_tag"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="@+id/tv_dialog_movie_tag"
+            app:layout_constraintTop_toBottomOf="@+id/tv_dialog_movie_tag" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
-import com.example.intentname.movieList.MovieListActivity
+import com.example.intentname.movieList.YourMovieActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_activity_intent.*
 import kotlinx.android.synthetic.main.dialog_activity_intent.view.*
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         cv_remake_menu2.setOnClickListener {
-            val intent = Intent(this, MovieListActivity::class.java)
+            val intent = Intent(this, YourMovieActivity::class.java)
             startActivity(intent)
         }
 
