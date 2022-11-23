@@ -11,5 +11,6 @@ import retrofit2.http.Query;
 public interface RetrofitNameData {
     @GET("http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json")
     Call<Result> getNameOffice(@Query("key") String key,
-                               @Query("movieNm") String movieNm);
+                               @Query("movieNm") String movieNm,
+                               @Query("itemPerPage") String itemPerPage);
 }

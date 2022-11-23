@@ -67,7 +67,7 @@ public class MovieNameActivity extends AppCompatActivity {
         btn_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                retrofitNameData.getNameOffice(API_KEY, et_movie_name.getText().toString()).enqueue(new Callback<Result>() {
+                retrofitNameData.getNameOffice(API_KEY, et_movie_name.getText().toString(),  "100").enqueue(new Callback<Result>() {
                     @Override
                     public void onResponse(Call<Result> call, Response<Result> response) {
                         Result result = response.body();

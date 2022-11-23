@@ -4,12 +4,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.bumptech.glide.Glide;
 import com.example.intentname.R;
 
-public class GlideData {
+public class GlideCountryData {
 
-    public void GlideMovieLoading (TextView tvNationAlt, View itemView, ImageView ivCountry) {
+    public void GlideCountryLoading (@NonNull TextView tvNationAlt, View itemView, ImageView ivCountry) {
 
         if (tvNationAlt.getText().toString().equals("한국") || tvNationAlt.getText().toString().equals("대한민국")) {
             Glide.with(itemView.getContext())
