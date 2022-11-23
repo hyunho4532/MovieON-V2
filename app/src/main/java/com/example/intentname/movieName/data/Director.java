@@ -16,5 +16,4 @@ public class Director {
     public void setPeopleNm(String peopleNm) {
         this.peopleNm = peopleNm;
     }
-
 }

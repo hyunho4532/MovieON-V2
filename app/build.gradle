@@ -37,6 +37,13 @@ android {
         // 뷰 바인딩 활성화
         viewBinding true
     }
+    sourceSets {
+        main {
+            assets {
+                srcDirs 'src\\main\\assets', 'src\\main\\res\\countryName'
+            }
+        }
+    }
 }
 
 dependencies {

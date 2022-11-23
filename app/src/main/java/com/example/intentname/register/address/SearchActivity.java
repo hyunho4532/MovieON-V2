@@ -34,6 +34,7 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private class BridgeInterface {
+
         @JavascriptInterface
         public void processDATA(String data) {
             Intent intent = new Intent();
