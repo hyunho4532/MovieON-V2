@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         cv_remake_menu2.setOnClickListener {
-            val intent = Intent(this, YourMovieActivity::class.java)
+            val intent = Intent(this, MovieRankActivity::class.java)
             startActivity(intent)
         }
 

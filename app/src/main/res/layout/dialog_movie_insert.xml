@@ -23,7 +23,7 @@
             android:id="@+id/tv_des_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="45dp"
             android:fontFamily="@font/welcome_font"
             android:text="영화 제목"

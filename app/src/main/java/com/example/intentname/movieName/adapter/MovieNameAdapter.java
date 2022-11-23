@@ -1,10 +1,10 @@
 package com.example.intentname.movieName.adapter;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,17 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.intentname.R;
 import com.example.intentname.movieList.YourMovieActivity;
-import com.example.intentname.movieName.MovieNameActivity;
+import com.example.intentname.movieName.data.country.GlideCountryData;
 import com.example.intentname.movieName.data.Movie;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 public class MovieNameAdapter extends RecyclerView.Adapter<MovieNameAdapter.MovieHolder> {
 
-    private List<Movie> items;
+    private final List<Movie> items;
 
     public MovieNameAdapter(List<Movie> items) {
         this.items = items;
@@ -48,12 +45,20 @@ public class MovieNameAdapter extends RecyclerView.Adapter<MovieNameAdapter.Movi
 
     public static class MovieHolder extends RecyclerView.ViewHolder {
 
-        private TextView tvMovieNm;
+        private final TextView tvMovieNm;
+        private final TextView tvGenreAlt;
+        private final TextView tvNationAlt;
+
+        private final ImageView ivCountry;
 
         public MovieHolder(@NonNull View itemView) {
             super(itemView);
 
             tvMovieNm = itemView.findViewById(R.id.tv_movieName);
+            tvGenreAlt = itemView.findViewById(R.id.tv_genreAlt);
+            tvNationAlt = itemView.findViewById(R.id.tv_nationAlt);
+
+            ivCountry = itemView.findViewById(R.id.iv_country);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -67,6 +72,17 @@ public class MovieNameAdapter extends RecyclerView.Adapter<MovieNameAdapter.Movi
 
         public void setItem(Movie item) {
             tvMovieNm.setText(item.getMovieNm());
+            tvGenreAlt.setText(item.getGenreAlt());
+            tvNationAlt.setText(item.getNationAlt());
+
+            setCountry(tvNationAlt);
+        }
+
+        private void setCountry(TextView tvNationAlt) {
+
+            GlideCountryData glideCountryData = new GlideCountryData();
+
+            glideCountryData.GlideCountryLoading(tvNationAlt, itemView, ivCountry);
         }
     }
 }
