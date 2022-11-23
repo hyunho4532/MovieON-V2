@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.intentname.R;
 import com.example.intentname.movieList.data.MovieData;
-import com.example.intentname.movieList.database.MovieDBHelper;
+import com.example.intentname.movieList.database.MovieNameHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,12 +27,12 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyVi
 
     private ArrayList<MovieData> movieData;
     private Context mContext;
-    private MovieDBHelper mDBHelper;
+    private MovieNameHelper mDBHelper;
 
     public MovieListAdapter(ArrayList<MovieData> movieData, Context mContext) {
         this.movieData = movieData;
         this.mContext = mContext;
-        mDBHelper = new MovieDBHelper(mContext, "myMovie.db", null, 1);
+        mDBHelper = new MovieNameHelper(mContext, "myMovie.db", null, 1);
     }
 
     @NonNull
@@ -92,17 +92,18 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyVi
                                 Dialog dialog = new Dialog(mContext, android.R.style.Theme_Material_Light_Dialog);
                                 dialog.setContentView(R.layout.dialog_movie_insert);
 
+                                TextView tv_categories_choice = dialog.findViewById(R.id.tv_categories_choice);
+
                                 EditText et_title = dialog.findViewById(R.id.et_title);
                                 EditText et_content = dialog.findViewById(R.id.et_content);
                                 EditText et_group_count = dialog.findViewById(R.id.et_group_count);
-                                EditText et_tag = dialog.findViewById(R.id.et_tag);
 
                                 Button btn_ok = dialog.findViewById(R.id.btn_ok);
 
                                 et_title.setText(movieItem.getTitle());
                                 et_content.setText(movieItem.getContent());
                                 et_group_count.setText(movieItem.getGroupCount());
-                                et_tag.setText(movieItem.getTag());
+                                tv_categories_choice.setText(movieItem.getTag());
 
                                 btn_ok.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -113,7 +114,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MyVi
                                         String currentTime = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
                                         String beforeTime = movieItem.getWriteDate();
                                         String groupCount = et_group_count.getText().toString();
-                                        String tag = et_tag.getText().toString();
+                                        String tag = tv_categories_choice.getText().toString();
 
                                         mDBHelper.updateMovie(title, content, currentTime, beforeTime, groupCount, tag);
 

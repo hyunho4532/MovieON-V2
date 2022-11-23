@@ -129,7 +129,7 @@
                     android:layout_marginTop="12dp"
                     android:fontFamily="@font/welcome_font"
                     android:gravity="center"
-                    android:text="@string/food_menu_top"
+                    android:text="@string/movie_name_input"
                     android:textSize="26sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/iv_remake_food_menu"

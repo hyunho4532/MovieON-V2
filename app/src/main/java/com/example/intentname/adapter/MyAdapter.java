@@ -1,6 +1,5 @@
 package com.example.intentname.adapter;
 
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,7 +65,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             tvMovieNm.setText(Objects.requireNonNull(item.get("movieNm")).toString());
             tvOpenDt.setText(Objects.requireNonNull(item.get("openDt")).toString());
             tvRankInTen.setText(Objects.requireNonNull(item.get("rankInten")).toString());
-
         }
     }
 }
