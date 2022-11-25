@@ -1,15 +1,13 @@
-package com.example.intentname.movieList.database;
+package com.example.intentname.movieList.data.database;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import com.example.intentname.movieList.data.MovieData;
 import java.util.ArrayList;
-import kotlin.Metadata;
-import kotlin.jvm.internal.Intrinsics;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -62,6 +60,24 @@ public class MovieNameHelper extends SQLiteOpenHelper {
         cursor.close();
 
         return movieDataS;
+    }
+
+    public int countMovie() {
+
+        int movieCount = 0;
+
+        String sql = "SELECT COUNT(*) FROM MovieList";
+
+        Cursor cursor = getReadableDatabase().rawQuery(sql, null);
+
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            movieCount = cursor.getInt(0);
+        }
+
+        cursor.close();
+
+        return movieCount;
     }
 
     public void insertMovie(@NotNull String _title, @NotNull String _content, @NotNull String _writeDate, @NotNull String _groupCount, @NotNull String _tag) {

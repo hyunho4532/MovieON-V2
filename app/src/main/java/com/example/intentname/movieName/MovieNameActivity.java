@@ -78,7 +78,7 @@ public class MovieNameActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<Result> call, Throwable t) {
+                    public void onFailure(Call<Result> call, Throwable error) {
 
                     }
                 });

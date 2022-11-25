@@ -1,5 +1,6 @@
 package com.example.intentname.movieName.adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,8 @@ import com.example.intentname.movieList.YourMovieActivity;
 import com.example.intentname.movieName.data.country.GlideCountryData;
 import com.example.intentname.movieName.data.Movie;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 public class MovieNameAdapter extends RecyclerView.Adapter<MovieNameAdapter.MovieHolder> {
@@ -81,7 +84,6 @@ public class MovieNameAdapter extends RecyclerView.Adapter<MovieNameAdapter.Movi
         private void setCountry(TextView tvNationAlt) {
 
             GlideCountryData glideCountryData = new GlideCountryData();
-
             glideCountryData.GlideCountryLoading(tvNationAlt, itemView, ivCountry);
         }
     }

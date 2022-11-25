@@ -3,14 +3,19 @@ package com.example.intentname
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
+import android.content.SharedPreferences.Editor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.WindowManager
+import android.view.*
+import androidx.activity.result.ActivityResultLauncher
+import androidx.core.view.GravityCompat
 import com.example.intentname.movieList.YourMovieActivity
 import com.example.intentname.movieName.MovieNameActivity
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_navi_header.*
 import kotlinx.android.synthetic.main.dialog_activity_intent.*
 import kotlinx.android.synthetic.main.dialog_activity_intent.view.*
 
@@ -37,6 +42,59 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MovieNameActivity::class.java)
             startActivity(intent)
         }
+
+        cv_remake_menu3.setOnClickListener {
+            val intent = Intent(this, YourMovieActivity::class.java);
+            startActivity(intent)
+        }
+
+        nav_view.setNavigationItemSelectedListener(object: NavigationView.OnNavigationItemSelectedListener {
+            @SuppressLint("CommitPrefEdits", "WorldWriteableFiles")
+            override fun onNavigationItemSelected(item: MenuItem): Boolean {
+
+                drawer.closeDrawers()
+
+                var id: Int = item.itemId;
+
+                if (id == R.id.account) {
+                    tv_welcome_message.visibility = View.INVISIBLE
+                    tv_name.visibility = View.VISIBLE
+
+                    val result = intent.getStringExtra("email")
+
+                    tv_name.text = result
+
+                    val sharedPreference = getSharedPreferences("YourEmail", MODE_PRIVATE);
+                    val editor: Editor = sharedPreference.edit();
+
+                    editor.putString("Email", tv_name.text.toString())
+                    editor.apply()
+                }
+                else if (id == R.id.setting) {
+
+                }
+                else if (id == R.id.logout) {
+
+                }
+
+                return true
+            }
+        })
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            android.R.id.home -> drawer.openDrawer(GravityCompat.START)
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+
     }
 
     @SuppressLint("InflateParams")

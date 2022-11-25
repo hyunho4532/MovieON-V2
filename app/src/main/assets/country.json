@@ -1,66 +1,31 @@
 {
   "country" : [
     {
-      "name": "한국",
-
-      "korean" : [
-        "koreaData",
-        "koreanOnClick"
-      ]
+      "name": "한국"
     },
 
     {
-      "name": "일본",
-
-      "japan" : [
-        "japanData",
-        "japanOnClick"
-      ]
+      "name": "일본"
     },
 
     {
-      "name": "미국",
-
-      "american" : [
-        "americanData",
-        "americanOnClick"
-      ]
+      "name": "미국"
     },
 
     {
-      "name": "중국",
-
-      "china" : [
-        "chinaData",
-        "chinaOnClick"
-      ]
+      "name": "중국"
     },
 
     {
-      "name": "독일",
-
-      "germany" : [
-        "germanyData",
-        "germanyOnClick"
-      ]
+      "name": "독일"
     },
 
     {
-      "name": "스페인",
-
-      "spain": [
-        "spainData",
-        "spainOnClick"
-      ]
+      "name": "스페인"
     },
 
     {
-      "name": "대만",
-
-      "tiwan": [
-        "tiwanData",
-        "tiwanOnClick"
-      ]
+      "name": "대만"
     }
   ]
 }

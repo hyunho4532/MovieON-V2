@@ -17,5 +17,4 @@ public class CountryResult {
     public void setCountry(List<Country> country) {
         this.country = country;
     }
-
 }

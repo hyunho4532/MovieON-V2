@@ -18,6 +18,8 @@
     <string name="movie_name_input">영화 이름 입력</string>
     <string name="plz_movie_name_input">영화 이름을 입력해주세요!!</string>
     <string name="movie_name">영화 이름 입력</string>
+    <string name="movie_count">영화 갯수</string>
+    <string name="logout">로그아웃</string>
 
     <string-array name="spinner_array">
         <item>재밌음</item>

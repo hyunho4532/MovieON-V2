@@ -9,7 +9,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface RetrofitNameData {
-    @GET("http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json")
+    @GET("http://openapi.foodsafetykorea.go.kr/api/sample/COOKRCP01/json")
     Call<Result> getNameOffice(@Query("key") String key,
                                @Query("movieNm") String movieNm,
                                @Query("itemPerPage") String itemPerPage);

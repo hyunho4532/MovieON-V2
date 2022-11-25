@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.intentname.R;
 import com.example.intentname.movieList.data.MovieData;
-import com.example.intentname.movieList.database.MovieNameHelper;
+import com.example.intentname.movieList.data.database.MovieNameHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

@@ -19,7 +19,7 @@ import android.widget.Toast;
 import com.example.intentname.R;
 import com.example.intentname.movieList.adapter.MovieListAdapter;
 import com.example.intentname.movieList.data.MovieData;
-import com.example.intentname.movieList.database.MovieNameHelper;
+import com.example.intentname.movieList.data.database.MovieNameHelper;
 import com.example.intentname.movieName.MovieNameActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -34,7 +34,7 @@ public class YourMovieActivity extends AppCompatActivity {
     private MovieNameHelper mMovieNameHelper;
     private MovieListAdapter mAdapter;
 
-    private TextView tv_intentName_title;
+    private TextView tv_intentName_title, tv_movie_count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +52,7 @@ public class YourMovieActivity extends AppCompatActivity {
         FloatingActionButton mBtn_write = findViewById(R.id.btn_write);
 
         tv_intentName_title = findViewById(R.id.tv_intentName_title);
+        tv_movie_count = findViewById(R.id.tv_movie_count);
 
         mMovieData = new ArrayList<>();
 
@@ -111,6 +112,9 @@ public class YourMovieActivity extends AppCompatActivity {
                         dialog.dismiss();
 
                         Toast.makeText(YourMovieActivity.this, "할일 목록에 추가되었습니다.", Toast.LENGTH_SHORT).show();
+
+                        int countColumn = mMovieNameHelper.countMovie();
+                        tv_movie_count.setText(String.valueOf(countColumn));
                     }
 
                     private void movieDataS(MovieData movieData, String currentTime) {
@@ -152,6 +156,14 @@ public class YourMovieActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        int countColumn = mMovieNameHelper.countMovie();
+        tv_movie_count.setText(String.valueOf(countColumn));
+    }
+
     private void setParams(Dialog dialog, WindowManager.LayoutParams params) {
         params.width = WindowManager.LayoutParams.MATCH_PARENT;
         params.height = WindowManager.LayoutParams.MATCH_PARENT;
@@ -167,4 +179,6 @@ public class YourMovieActivity extends AppCompatActivity {
             mRv_todo.setAdapter(mAdapter);
         }
     }
+
+
 }
