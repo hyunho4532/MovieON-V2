@@ -14,6 +14,12 @@
         android:roundIcon="@mipmap/movie_icon"
         android:theme="@style/Theme.IntentName"
         android:usesCleartextTraffic="true">
+
+        <activity
+            android:name=".ui.HomeActivity"
+            android:exported="false">
+        </activity>
+
         <activity
             android:name=".login.LoginActivity"
             android:exported="false">
