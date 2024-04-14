@@ -31,18 +31,18 @@
             android:id="@+id/tv_welcome_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="40dp"
             android:fontFamily="@font/line_font"
-            android:text="환영합니다! 뮤비온 프로그램입니다!"
+            android:text="환영합니다!\n뮤비온 프로그램입니다!"
             android:textColor="@color/white"
             android:textSize="26sp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/et_address"
-            android:layout_width="350dp"
+            android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/activity_register_background"
@@ -50,7 +50,7 @@
             android:hint="@string/email_input"
             android:inputType="textPersonName"
             android:padding="10dp"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/white"
             app:layout_constraintStart_toStartOf="@+id/tv_address"
             app:layout_constraintTop_toBottomOf="@+id/tv_address"
             tools:ignore="TouchTargetSizeCheck" />
@@ -63,7 +63,7 @@
             android:fontFamily="@font/welcome_font"
             android:text="@string/email_textview_input"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="22sp"
             app:layout_constraintStart_toStartOf="@+id/tv_welcome_register"
             app:layout_constraintTop_toBottomOf="@+id/tv_welcome_register" />
 
@@ -75,13 +75,13 @@
             android:fontFamily="@font/welcome_font"
             android:text="이메일을 입력해주세요"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="22sp"
             app:layout_constraintStart_toStartOf="@+id/et_address"
             app:layout_constraintTop_toBottomOf="@+id/et_address" />
 
         <EditText
             android:id="@+id/et_check_email"
-            android:layout_width="350dp"
+            android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/activity_register_background"
@@ -101,13 +101,13 @@
             android:fontFamily="@font/welcome_font"
             android:text="비밀번호를 입력해주세요"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="22sp"
             app:layout_constraintStart_toStartOf="@+id/et_check_email"
             app:layout_constraintTop_toBottomOf="@+id/et_check_email" />
 
         <EditText
             android:id="@+id/et_check_password"
-            android:layout_width="350dp"
+            android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/activity_register_background"
