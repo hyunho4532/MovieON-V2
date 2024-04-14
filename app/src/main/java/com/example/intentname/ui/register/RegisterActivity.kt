@@ -1,4 +1,4 @@
-package com.example.intentname.register
+package com.example.intentname.ui.register
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -7,14 +7,13 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import com.example.intentname.MainActivity
+import com.example.intentname.ui.MainActivity
 import com.example.intentname.R
-import com.example.intentname.login.LoginActivity
-import com.example.intentname.register.address.SearchActivity
+import com.example.intentname.ui.login.LoginActivity
+import com.example.intentname.ui.register.address.SearchActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_register.*
-import kotlinx.android.synthetic.main.activity_register_check.*
 
 class RegisterActivity : AppCompatActivity() {
 

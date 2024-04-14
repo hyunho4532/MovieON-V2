@@ -1,4 +1,4 @@
-package com.example.intentname.register.address;
+package com.example.intentname.ui.register.address;
 
 import androidx.appcompat.app.AppCompatActivity;
 

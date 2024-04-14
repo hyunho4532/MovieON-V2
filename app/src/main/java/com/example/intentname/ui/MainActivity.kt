@@ -1,4 +1,4 @@
-package com.example.intentname
+package com.example.intentname.ui
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -7,17 +7,13 @@ import android.content.SharedPreferences.Editor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
-import androidx.activity.result.ActivityResultLauncher
 import androidx.core.view.GravityCompat
+import com.example.intentname.R
 import com.example.intentname.movieList.YourMovieActivity
 import com.example.intentname.movieName.MovieNameActivity
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.material.navigation.NavigationView
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_navi_header.*
-import kotlinx.android.synthetic.main.dialog_activity_intent.*
-import kotlinx.android.synthetic.main.dialog_activity_intent.view.*
 
 class MainActivity : AppCompatActivity() {
 

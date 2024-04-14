@@ -1,9 +1,10 @@
-package com.example.intentname
+package com.example.intentname.ui
 
 import android.app.DatePickerDialog
 import android.app.DatePickerDialog.OnDateSetListener
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.intentname.R
 import com.example.intentname.adapter.MyAdapter
 import com.example.intentname.retrofit.RetrofitInterface
 import retrofit2.Call
