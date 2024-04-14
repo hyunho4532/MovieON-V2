@@ -28,18 +28,21 @@ class RegisterActivity : AppCompatActivity() {
         et_address?.isFocusable = false
 
         mAuth = FirebaseAuth.getInstance()
+
         et_address?.setOnClickListener {
             val intent = Intent(this@RegisterActivity, SearchActivity::class.java)
             getSearchResult.launch(intent)
         }
 
         btn_register_check!!.setOnClickListener {
-            if (et_check_email?.text.toString() != "" && et_check_password?.text.toString() != "") {
+            if (et_check_email?.text.toString() != "" || et_check_password?.text.toString() != "") {
                 createUser(et_check_email?.text.toString(), et_check_password?.text.toString())
+            } else {
+                Toast.makeText(this, "이메일 또는 패스워드를 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
         }
 
-        btn_login_intent.setOnClickListener {
+        tv_login_click.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }

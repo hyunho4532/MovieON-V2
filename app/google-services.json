@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "229699492691",
-    "project_id": "helloyourmvm",
-    "storage_bucket": "helloyourmvm.appspot.com"
+    "project_number": "227669677160",
+    "project_id": "movieon-c5740",
+    "storage_bucket": "movieon-c5740.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:229699492691:android:64ab210cb367836e855fa6",
+        "mobilesdk_app_id": "1:227669677160:android:f54ee8a82c7360d66bd7dd",
         "android_client_info": {
           "package_name": "com.example.intentname"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "229699492691-oij31flkosm5linjfjjntodgb236t1rk.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA7JoFMkMScTLZm2ngGX3h9Lt61FCvtNHI"
+          "current_key": "AIzaSyDJCRO48lZjfIu9qVNqbej0UleBHtgie_U"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "229699492691-oij31flkosm5linjfjjntodgb236t1rk.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

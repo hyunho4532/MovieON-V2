@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".register.RegisterActivity">
 
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/constraintLayout2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </androidx.drawerlayout.widget.DrawerLayout>
-    
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
@@ -31,18 +20,18 @@
             android:id="@+id/tv_welcome_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="40dp"
             android:fontFamily="@font/line_font"
-            android:text="환영합니다! 뮤비온 프로그램입니다!"
+            android:text="환영합니다!\n뮤비온 프로그램입니다!"
             android:textColor="@color/white"
             android:textSize="26sp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/et_address"
-            android:layout_width="350dp"
+            android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/activity_register_background"
@@ -50,7 +39,8 @@
             android:hint="@string/email_input"
             android:inputType="textPersonName"
             android:padding="10dp"
-            android:textColorHint="@color/black"
+            android:textColorHint="@color/white"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/tv_address"
             app:layout_constraintTop_toBottomOf="@+id/tv_address"
             tools:ignore="TouchTargetSizeCheck" />
@@ -63,7 +53,7 @@
             android:fontFamily="@font/welcome_font"
             android:text="@string/email_textview_input"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="19sp"
             app:layout_constraintStart_toStartOf="@+id/tv_welcome_register"
             app:layout_constraintTop_toBottomOf="@+id/tv_welcome_register" />
 
@@ -75,13 +65,13 @@
             android:fontFamily="@font/welcome_font"
             android:text="이메일을 입력해주세요"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="19sp"
             app:layout_constraintStart_toStartOf="@+id/et_address"
             app:layout_constraintTop_toBottomOf="@+id/et_address" />
 
         <EditText
             android:id="@+id/et_check_email"
-            android:layout_width="350dp"
+            android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/activity_register_background"
@@ -89,7 +79,8 @@
             android:hint="이메일 입력창입니다."
             android:inputType="textPersonName"
             android:padding="10dp"
-            android:textColorHint="@color/black"
+            android:textColorHint="#F1F1F1"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/tv_email"
             app:layout_constraintTop_toBottomOf="@+id/tv_email" />
 
@@ -101,13 +92,13 @@
             android:fontFamily="@font/welcome_font"
             android:text="비밀번호를 입력해주세요"
             android:textColor="@color/white"
-            android:textSize="26sp"
+            android:textSize="19sp"
             app:layout_constraintStart_toStartOf="@+id/et_check_email"
             app:layout_constraintTop_toBottomOf="@+id/et_check_email" />
 
         <EditText
             android:id="@+id/et_check_password"
-            android:layout_width="350dp"
+            android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/activity_register_background"
@@ -115,67 +106,40 @@
             android:hint="비밀번호 입력창입니다."
             android:inputType="textPersonName"
             android:padding="10dp"
-            android:textColorHint="@color/black"
+            android:textColorHint="#F1F1F1"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/tv_password"
             app:layout_constraintTop_toBottomOf="@+id/tv_password" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <Button
         android:id="@+id/btn_register_check"
-        android:layout_width="370dp"
-        android:layout_height="60dp"
+        android:layout_width="340dp"
+        android:layout_height="50dp"
         android:layout_marginTop="92dp"
+        android:background="@drawable/activity_register_insert_button"
         android:text="회원가입 완료!"
-        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
-    <ImageView
-        android:id="@+id/iv_google_click"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
-        app:srcCompat="@drawable/activity_google_image" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView5"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/iv_google_click"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
-        app:srcCompat="@drawable/activity_facebook_image" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
+    <TextView
+        android:id="@+id/tv_login_click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="이메일이 있으신가요?"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
-        app:srcCompat="@drawable/activity_instagram_image" />
-
-    <Button
-        android:id="@+id/btn_login_intent"
-        android:layout_width="370dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginBottom="16dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btn_register_check"
-        app:layout_constraintStart_toStartOf="@+id/btn_register_check"
-        app:layout_constraintTop_toBottomOf="@+id/btn_register_check" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
