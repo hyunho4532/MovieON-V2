@@ -6,7 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.intentname.R
+import com.example.intentname.adapter.PopularMovieAdapter
+import com.example.intentname.model.PopularMovie
+import kotlinx.android.synthetic.main.fragment_home.rv_popular_movie
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -29,13 +33,14 @@ class HomeFragment : Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+        val popularMovieList = ArrayList<PopularMovie>()
 
         GlobalScope.launch(Dispatchers.IO) {
 
             val client = OkHttpClient()
 
             val request = Request.Builder()
-                .url("https://api.themoviedb.org/3/movie/popular?language=en-US&page=1")
+                .url("https://api.themoviedb.org/3/movie/popular?language=ko-KR&page=1")
                 .get()
                 .addHeader("accept", "application/json")
                 .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZjVmZDI3NWVlNTExMWVkNDkzNDVjOTE2YzQ2YzE3NyIsInN1YiI6IjY0MTlhYjgwMGQ1ZDg1MDBiYTEwZDU0MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IZEX0iX9VfINBnA7RmKA-ImdpxtWyaU1nKl_rvg22KU")
@@ -53,7 +58,13 @@ class HomeFragment : Fragment() {
                     val movieObject = resultsArray.getJSONObject(i)
                     val originalTitle = movieObject.getString("original_title")
 
-                    Log.d("HomeFragment", "Original Title: $originalTitle")
+                    popularMovieList.add(PopularMovie(originalTitle))
+                }
+
+                launch(Dispatchers.Main) {
+
+                    rv_popular_movie.adapter = PopularMovieAdapter(popularMovieList)
+                    rv_popular_movie.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 }
             }
         }
