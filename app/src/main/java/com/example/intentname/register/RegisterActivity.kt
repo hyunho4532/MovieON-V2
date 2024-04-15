@@ -11,11 +11,10 @@ import com.example.intentname.MainActivity
 import com.example.intentname.R
 import com.example.intentname.login.LoginActivity
 import com.example.intentname.register.address.SearchActivity
-import com.example.intentname.ui.HomeActivity
+import com.example.intentname.ui.home.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_register.*
-import kotlinx.android.synthetic.main.activity_register_check.*
 
 class RegisterActivity : AppCompatActivity() {
 

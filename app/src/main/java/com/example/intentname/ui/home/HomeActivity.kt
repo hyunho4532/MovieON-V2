@@ -1,4 +1,4 @@
-package com.example.intentname.ui
+package com.example.intentname.ui.home
 
 import android.annotation.SuppressLint
 import android.os.Bundle
