@@ -56,14 +56,19 @@ class HomeFragment : Fragment() {
 
                 for (i in 0 until resultsArray.length()) {
                     val movieObject = resultsArray.getJSONObject(i)
-                    val originalTitle = movieObject.getString("original_title")
 
-                    popularMovieList.add(PopularMovie(originalTitle))
+                    val id = movieObject.getString("id")
+                    val originalTitle = movieObject.getString("title")
+                    val posterPath = "https://image.tmdb.org/t/p/w500/${movieObject.getString("poster_path")}"
+
+                    popularMovieList.add(PopularMovie(id, originalTitle, posterPath))
+
+                    Log.d("HomeFragment", popularMovieList.toString())
                 }
 
                 launch(Dispatchers.Main) {
 
-                    rv_popular_movie.adapter = PopularMovieAdapter(popularMovieList)
+                    rv_popular_movie.adapter = PopularMovieAdapter(requireContext(), popularMovieList)
                     rv_popular_movie.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 }
             }
