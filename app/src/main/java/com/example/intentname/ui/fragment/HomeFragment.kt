@@ -9,7 +9,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.intentname.R
 import com.example.intentname.adapter.PopularMovieAdapter
+import com.example.intentname.model.DetailMovie
 import com.example.intentname.model.PopularMovie
+import com.example.intentname.presenter.MovieDetailPresenter
 import kotlinx.android.synthetic.main.fragment_home.rv_popular_movie
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
@@ -19,7 +21,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), com.example.intentname.view.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,5 +77,9 @@ class HomeFragment : Fragment() {
         }
 
         return view
+    }
+
+    override fun showMovieDetailData(detailMovie: DetailMovie) {
+
     }
 }
