@@ -35,7 +35,7 @@ android {
 
     buildFeatures {
         // 뷰 바인딩 활성화
-        viewBinding true
+        dataBinding true
     }
     sourceSets {
         main {
@@ -75,5 +75,8 @@ dependencies {
     // https://mvnrepository.com/artifact/com.squareup.okhttp/okhttp
     implementation 'com.squareup.okhttp:okhttp:2.7.5'
 
-    implementation 'com.google.android.exoplayer:exoplayer:2.19.1'
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.15.1'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.15.1'
+
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0'
 }

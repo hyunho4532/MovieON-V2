@@ -6,12 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.intentname.R
 import com.example.intentname.adapter.PopularMovieAdapter
 import com.example.intentname.model.DetailMovie
 import com.example.intentname.model.PopularMovie
 import com.example.intentname.presenter.MovieDetailPresenter
+import com.example.intentname.viewmodel.MovieIdStatusViewModel
 import kotlinx.android.synthetic.main.fragment_home.rv_popular_movie
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
@@ -22,6 +24,8 @@ import okhttp3.Request
 import org.json.JSONObject
 
 class HomeFragment : Fragment(), com.example.intentname.view.View {
+
+    private lateinit var movieIdStatusViewModel: MovieIdStatusViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +40,7 @@ class HomeFragment : Fragment(), com.example.intentname.view.View {
 
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         val popularMovieList = ArrayList<PopularMovie>()
+        movieIdStatusViewModel = ViewModelProvider(this)[MovieIdStatusViewModel::class.java]
 
         GlobalScope.launch(Dispatchers.IO) {
 
@@ -70,7 +75,7 @@ class HomeFragment : Fragment(), com.example.intentname.view.View {
 
                 launch(Dispatchers.Main) {
 
-                    rv_popular_movie.adapter = PopularMovieAdapter(requireContext(), popularMovieList)
+                    rv_popular_movie.adapter = PopularMovieAdapter(requireContext(), popularMovieList, movieIdStatusViewModel)
                     rv_popular_movie.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 }
             }
